@@ -64,142 +64,142 @@ struct macs mmacs[] = {
 struct pars mpars[] = {
   /* Protocols */
   /* Warning: minicom assumes the first 12 entries are these proto's ! */
-  { "YUNYYzmodem",	0,   "pname1" },
-  { "YUNYYymodem",	0,   "pname2" },
-  { "YUNYNxmodem",	0,   "pname3" },
-  { "NDNYYzmodem",	0,   "pname4" },
-  { "NDNYYymodem",	0,   "pname5" },
-  { "YDNYNxmodem",	0,   "pname6" },
-  { "YUYNNkermit",	0,   "pname7" },
-  { "NDYNNkermit",	0,   "pname8" },
-  { "YUNYNascii",	0,   "pname9" },
-  { "",			0,   "pname10" },
-  { "",			0,   "pname11" },
-  { "",			0,   "pname12" },
+  [ 0] = { "YUNYYzmodem",	0,   "pname1" },
+  [ 1] = { "YUNYYymodem",	0,   "pname2" },
+  [ 2] = { "YUNYNxmodem",	0,   "pname3" },
+  [ 3] = { "NDNYYzmodem",	0,   "pname4" },
+  [ 4] = { "NDNYYymodem",	0,   "pname5" },
+  [ 5] = { "YDNYNxmodem",	0,   "pname6" },
+  [ 6] = { "YUYNNkermit",	0,   "pname7" },
+  [ 7] = { "NDYNNkermit",	0,   "pname8" },
+  [ 8] = { "YUNYNascii",	0,   "pname9" },
+  [ 9] = { "",			0,   "pname10" },
+  [10] = { "",			0,   "pname11" },
+  [11] = { "",			0,   "pname12" },
 #if defined(__linux__) || defined(__GNU__)
-  { "/usr/bin/sz -vv -b",	0,   "pprog1" },
-  { "/usr/bin/sb -vv",		0,   "pprog2" },
-  { "/usr/bin/sx -vv",		0,   "pprog3" },
-  { "/usr/bin/rz -vv -b -E",	0,   "pprog4" },
-  { "/usr/bin/rb -vv",		0,   "pprog5" },
-  { "/usr/bin/rx -vv",		0,   "pprog6" },
-  { "/usr/bin/kermit -i -l %l -b %b -s", 0, "pprog7" },
-  { "/usr/bin/kermit -i -l %l -b %b -r", 0, "pprog8" },
+  [12] = { "/usr/bin/sz -vv -b",	0,   "pprog1" },
+  [13] = { "/usr/bin/sb -vv",		0,   "pprog2" },
+  [14] = { "/usr/bin/sx -vv",		0,   "pprog3" },
+  [15] = { "/usr/bin/rz -vv -b -E",	0,   "pprog4" },
+  [16] = { "/usr/bin/rb -vv",		0,   "pprog5" },
+  [17] = { "/usr/bin/rx -vv",		0,   "pprog6" },
+  [18] = { "/usr/bin/kermit -i -l %l -b %b -s", 0, "pprog7" },
+  [19] = { "/usr/bin/kermit -i -l %l -b %b -r", 0, "pprog8" },
 #else
   /* Most sites have this in /usr/local, except Linux. */
-  { "/usr/local/bin/sz -vv",	0,   "pprog1" },
-  { "/usr/local/bin/sb -vv",	0,   "pprog2" },
-  { "/usr/local/bin/sx -vv",	0,   "pprog3" },
-  { "/usr/local/bin/rz -vv",	0,   "pprog4" },
-  { "/usr/local/bin/rb -vv",	0,   "pprog5" },
-  { "/usr/local/bin/rx -vv",	0,   "pprog6" },
-  { "/usr/local/bin/kermit -i -l %l -s", 0, "pprog7" },
-  { "/usr/local/bin/kermit -i -l %l -r", 0, "pprog8" },
+  [12] = { "/usr/local/bin/sz -vv",	0,   "pprog1" },
+  [13] = { "/usr/local/bin/sb -vv",	0,   "pprog2" },
+  [14] = { "/usr/local/bin/sx -vv",	0,   "pprog3" },
+  [15] = { "/usr/local/bin/rz -vv",	0,   "pprog4" },
+  [16] = { "/usr/local/bin/rb -vv",	0,   "pprog5" },
+  [17] = { "/usr/local/bin/rx -vv",	0,   "pprog6" },
+  [18] = { "/usr/local/bin/kermit -i -l %l -s", 0, "pprog7" },
+  [19] = { "/usr/local/bin/kermit -i -l %l -r", 0, "pprog8" },
 #endif
-  { "/usr/bin/ascii-xfr -dsv", 0,   "pprog9" },
-  { "",			0,   "pprog10" },
-  { "",			0,   "pprog11" },
-  { "",			0,   "pprog12" },
+  [20] = { "/usr/bin/ascii-xfr -dsv", 0,   "pprog9" },
+  [21] = { "",			0,   "pprog10" },
+  [22] = { "",			0,   "pprog11" },
+  [23] = { "",			0,   "pprog12" },
   /* Serial port & friends */
-  { DFL_PORT,		0,  "port" },
-  { CALLIN,		0,  "callin" },
-  { CALLOUT,		0,  "callout" },
-  { UUCPLOCK,		0,  "lock" },
-  { DEF_BAUD,		0,   "baudrate" },
-  { "8",		0,   "bits" },
-  { "N",		0,   "parity" },
-  { "1",		0,   "stopbits" },
+  [24] = { DFL_PORT,		0,  "port" },
+  [25] = { CALLIN,		0,  "callin" },
+  [26] = { CALLOUT,		0,  "callout" },
+  [27] = { UUCPLOCK,		0,  "lock" },
+  [28] = { DEF_BAUD,		0,   "baudrate" },
+  [29] = { "8",		0,   "bits" },
+  [30] = { "N",		0,   "parity" },
+  [31] = { "1",		0,   "stopbits" },
   /* Kermit the frog */
-  { KERMIT,		0,  "kermit" },
-  { N_("Yes"),		0,  "kermallow" },
-  { N_("No"),		0,  "kermreal" },
-  { "3",		0,   "colusage" },
+  [32] = { KERMIT,		0,  "kermit" },
+  [33] = { N_("Yes"),		0,  "kermallow" },
+  [34] = { N_("No"),		0,  "kermreal" },
+  [35] = { "3",		0,   "colusage" },
   /* The script program */
-  { "runscript",	0,   "scriptprog" },
+  [36] = { "runscript",	0,   "scriptprog" },
   /* Modem parameters */
-  { "",                 0,   "minit" },
-  { "",                 0,   "mreset" },
-  { "ATDT",		0,   "mdialpre" },
-  { "^M",		0,   "mdialsuf" },
-  { "ATDP",		0,   "mdialpre2" },
-  { "^M",		0,   "mdialsuf2" },
-  { "ATX1DT",		0,   "mdialpre3" },
-  { ";X4D^M",		0,   "mdialsuf3" },
-  { "CONNECT",		0,   "mconnect" },
-  { "NO CARRIER",	0,   "mnocon1" },
-  { "BUSY",		0,   "mnocon2" },
-  { "NO DIALTONE",	0,   "mnocon3" },
-  { "VOICE",		0,   "mnocon4" },
-  { "~~+++~~ATH^M",	0,   "mhangup" },
-  { "^M",		0,   "mdialcan" },
-  { "45",		0,   "mdialtime" },
-  { "2",		0,   "mrdelay" },
-  { "10",		0,   "mretries" },
-  { "1",		0,   "mdropdtr" },   /* jl 23.06.97 */
-  { "No",		0,   "mautobaud" },
-  { "d",		0,   "showspeed" },  /* d=DTE, l=line speed */
-  { "",			0,   "updir" },
-  { "",			0,   "downdir" },
-  { "",			0,   "scriptdir" },
-  { "^A",		0,   "escape-key" },
-  { "BS",		0,   "backspace" },
-  { N_("enabled"),	0,   "statusline" },
-  { N_("Yes"),		0,   "hasdcd" },
-  { N_("Yes"),		0,   "rtscts" },
-  { N_("No"),		0,   "xonxoff" },
-  { "D",		0,   "zauto" },
+  [37] = { "",                 0,   "minit" },
+  [38] = { "",                 0,   "mreset" },
+  [39] = { "ATDT",		0,   "mdialpre" },
+  [40] = { "^M",		0,   "mdialsuf" },
+  [41] = { "ATDP",		0,   "mdialpre2" },
+  [42] = { "^M",		0,   "mdialsuf2" },
+  [43] = { "ATX1DT",		0,   "mdialpre3" },
+  [44] = { ";X4D^M",		0,   "mdialsuf3" },
+  [45] = { "CONNECT",		0,   "mconnect" },
+  [46] = { "NO CARRIER",	0,   "mnocon1" },
+  [47] = { "BUSY",		0,   "mnocon2" },
+  [48] = { "NO DIALTONE",	0,   "mnocon3" },
+  [49] = { "VOICE",		0,   "mnocon4" },
+  [50] = { "~~+++~~ATH^M",	0,   "mhangup" },
+  [51] = { "^M",		0,   "mdialcan" },
+  [52] = { "45",		0,   "mdialtime" },
+  [53] = { "2",		0,   "mrdelay" },
+  [54] = { "10",		0,   "mretries" },
+  [55] = { "1",		0,   "mdropdtr" },   /* jl 23.06.97 */
+  [56] = { "No",		0,   "mautobaud" },
+  [57] = { "d",		0,   "showspeed" },  /* d=DTE, l=line speed */
+  [58] = { "",			0,   "updir" },
+  [59] = { "",			0,   "downdir" },
+  [60] = { "",			0,   "scriptdir" },
+  [61] = { "^A",		0,   "escape-key" },
+  [62] = { "BS",		0,   "backspace" },
+  [63] = { N_("enabled"),	0,   "statusline" },
+  [64] = { N_("Yes"),		0,   "hasdcd" },
+  [65] = { N_("Yes"),		0,   "rtscts" },
+  [66] = { N_("No"),		0,   "xonxoff" },
+  [67] = { "D",		0,   "zauto" },
 
   /* fmg 1/11/94 colors */
   /* MARK updated 02/17/95 to be more like TELIX. After all its configurable */
 
-  { "YELLOW",           0,   "mfcolor" },
-  { "BLUE",             0,   "mbcolor" },
-  { "WHITE",            0,   "tfcolor" },
-  { "BLACK",            0,   "tbcolor" },
-  { "WHITE",            0,   "sfcolor" },
-  { "RED",              0,   "sbcolor" },
+  [68] = { "YELLOW",           0,   "mfcolor" },
+  [69] = { "BLUE",             0,   "mbcolor" },
+  [70] = { "WHITE",            0,   "tfcolor" },
+  [71] = { "BLACK",            0,   "tbcolor" },
+  [72] = { "WHITE",            0,   "sfcolor" },
+  [73] = { "RED",              0,   "sbcolor" },
 
   /* fmg 2/20/94 macros */
 
-  { ".macros",          0,   "macros" },
-  { "",                 0,   "changed" },
-  { "Yes",		0,   "macenab" },
+  [74] = { ".macros",          0,   "macros" },
+  [75] = { "",                 0,   "changed" },
+  [76] = { "Yes",		0,   "macenab" },
 
   /* Continue here with new stuff. */
-  { "Yes",		0,   "sound"  },
+  [77] = { "Yes",		0,   "sound"  },
   /* MARK updated 02/17/95 - History buffer size */
-  { "2000",             0,   "histlines" },
+  [78] = { "2000",             0,   "histlines" },
 
   /* Character conversion table - jl / 04.09.97 */
-  { "",			0,    "convf" },
-  { "Yes",		0,    "convcap" },
+  [79] = { "",			0,    "convf" },
+  [80] = { "Yes",		0,    "convcap" },
   /* Do you want to use the filename selection window? */
-  { "Yes",		0,    "fselw" },
+  [81] = { "Yes",		0,    "fselw" },
   /* Do you want to be prompted for the download directory? */
-  { "No",		0,    "askdndir" },
+  [82] = { "No",		0,    "askdndir" },
 
   /* Logfile options - jl 05.04.99 */
 #ifdef LOGFILE
-  { LOGFILE,		0,    "logfname" },
+  [83] = { LOGFILE,		0,    "logfname" },
 #else
-  { "/dev/null",	0,    "logfname" },
+  [83] = { "/dev/null",	0,    "logfname" },
 #endif
-  { "Yes",		0,    "logconn" },
-  { "Yes",		0,    "logxfer" },
+  [84] = { "Yes",		0,    "logconn" },
+  [85] = { "Yes",		0,    "logxfer" },
 
-  { "No",		0,    "multiline" },
+  [86] = { "No",		0,    "multiline" },
 
   /* Terminal behaviour */
-  { "No",		0,    "localecho" },
-  { "No",		0,    "addlinefeed" },
-  { "No",		0,    "linewrap" },
-  { "No",		0,    "displayhex" },
-  { "No",		0,    "addcarreturn" },
+  [87] = { "Yes",		0,    "localecho" },
+  [88] = { "Yes",		0,    "addlinefeed" },
+  [89] = { "No",		0,    "linewrap" },
+  [90] = { "No",		0,    "displayhex" },
+  [91] = { "Yes",		0,    "addcarreturn" },
 
-  { "Minicom"VERSION,   0,    "answerback" },
+  [92] = { "Minicom"VERSION,   0,    "answerback" },
 
   /* That's all folks */
-  { "",                 0,         NULL },
+  [93] = { "",                 0,         NULL },
 };
 
 /*
@@ -227,9 +227,10 @@ int writepars(FILE *fp, int all)
   else
     fprintf(fp, _("# Machine-generated file - use setup menu in minicom to change parameters.\n"));
 
-  for (p = mpars; p->desc; p++)
-    if (p->flags & CHANGED)
+  for (p = mpars; p->desc; p++) {
+//    if (p->flags & CHANGED)
       fprintf(fp, "pu %-16.16s %s\n", p->desc, p->value);
+  }
   return 0;
 }
 
