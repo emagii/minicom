@@ -1437,7 +1437,7 @@ void get_bbp(char *ba, char *bi, char *pa, char *stopb, int curr_ok)
   WIN *w;
   int x, y;
 
-  w = mc_wopen(23, 4, 58, 18, BDOUBLE, stdattr, mfcolor, mbcolor, 0, 0, 1);
+  w = mc_wopen(23, 4, 58, 21,BDOUBLE, stdattr, mfcolor, mbcolor, 0, 0, 1);
   mc_wtitle(w, TMID, _("Comm Parameters"));
 
   dirflush = 0;
@@ -1449,6 +1449,9 @@ void get_bbp(char *ba, char *bi, char *pa, char *stopb, int curr_ok)
   mc_wputs(w, _(" C:   9600        N: Odd      U: 7\n"));
   mc_wputs(w, _(" D:  38400        O: Mark     V: 8\n"));
   mc_wputs(w, _(" E: 115200        P: Space\n"));
+  mc_wputs(w, _(" F: 230400\n"));
+  mc_wputs(w, _(" G: 460800\n"));
+  mc_wputs(w, _(" H: 921600\n"));
   mc_wputs(w, "\n");
   mc_wputs(w, _(" Stopbits\n"));
   mc_wputs(w, _(" W: 1             Q: 8-N-1\n"));
@@ -1522,12 +1525,21 @@ int update_bbp_from_char(char c, char *ba, char *bi, char *pa, char *stopb,
     case 'C':
     case 'D':
     case 'E':
+    case 'F':
+    case 'G':
+    case 'H':
       if (c == 'C')
 	speed_idx = 4;
       else if (c == 'D')
 	speed_idx = 6;
       else if (c == 'E')
         speed_idx = 8;
+      else if (c == 'F')
+        speed_idx = 9;
+      else if (c == 'G')
+        speed_idx = 10;
+      else if (c == 'H')
+        speed_idx = 13;
     case 'K':
       if (c == 'K' && !curr_ok)
         break;

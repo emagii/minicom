@@ -3,7 +3,7 @@ dnl configure.in autoconf/automake input script
 dnl for minicom
 dnl
 
-AC_INIT([minicom], [2.6.2], [minicom-devel@lists.alioth.debian.org])
+AC_INIT([minicom], [2.7.0], [minicom-devel@lists.alioth.debian.org])
 AC_CONFIG_SRCDIR([src/minicom.c])
 AM_CONFIG_HEADER([config.h])
 AC_PREREQ(2.59)
@@ -286,7 +286,7 @@ dnl ---------------------------------------------------------------
 AC_MSG_CHECKING(for default baud rate)
 
 tmp_match=no
-for tmp_baud_rate in 300 1200 2400 4800 9600 19200 38400 57600 115200 230400
+for tmp_baud_rate in 300 1200 2400 4800 9600 19200 38400 57600 115200 230400 460800 921600
 do
 	if test "x$DEF_BAUD" = "x$tmp_baud_rate"
 	then
