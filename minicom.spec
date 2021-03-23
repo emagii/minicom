@@ -5,7 +5,7 @@ Summary(fr):	Package de communication en mode terminal à la Telix
 Summary(pl):	Program komunikacyjny (podobny do Telix-a)
 Summary(tr):	Telix benzeri, TTY kipi iletiþim paketi
 Name:		minicom
-Version:	2.6.2
+Version:	2.7.0
 Release:	1
 Copyright:	GPL
 Group:		Applications/Communications
