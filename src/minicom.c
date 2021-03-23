@@ -1051,6 +1051,8 @@ int main(int argc, char **argv)
     { "baudrate",      required_argument, NULL, 'b' },
     { "device",        required_argument, NULL, 'D' },
     { "remotecharset", required_argument, NULL, 'R' },
+    { "file",          required_argument, NULL, 'F' },
+    { "download",      required_argument, NULL, 'X' },
     { NULL, 0, NULL, 0 }
   };
 
@@ -1068,7 +1070,7 @@ int main(int argc, char **argv)
   stdattr = XA_NORMAL;
   us = NULL;
   addlf = 0;
-  addcr = 0;
+  addcr = 1;
   line_timestamp = 0;
   wrapln = 0;
   display_hex = 0;
@@ -1097,7 +1099,36 @@ int main(int argc, char **argv)
   size_changed = 0;
   escape = 1;
   cmd_dial = NULL;
-
+  {
+    char *s = getenv("MINICOM_UPDIR");
+    printf("MINICOM_UPDIR=%s\n", s);
+    if (s != NULL) {
+      strcpy(P_UPDIR,s);
+    }
+    printf("P_UPDIR=%s\n", P_UPDIR);
+    s = getenv("MINICOM_DOWNDIR");
+    printf("MINICOM_DOWNDIR=%s\n", s);
+    if (s != NULL) {
+      strcpy(P_DOWNDIR,s);
+    }
+    printf("P_DOWNDIR=%s\n", P_DOWNDIR);
+    s = getenv("MINICOM_MODE");
+    printf("MINICOM_MODE=%s\n", s);
+    if (strcmp(s,"zmodem")) {
+      upload_mode = ZModem;
+    } else if (strcmp(s,"ymodem")) {
+      upload_mode = YModem;
+    } else if (strcmp(s,"xmodem")) {
+      upload_mode = XModem;
+    } else if (strcmp(s,"kermit")) {
+      upload_mode = Kermit;
+    } else if (strcmp(s,"ascii")) {
+      upload_mode = ASCII;
+    } else {
+      upload_mode = ZModem;
+    }
+  }
+  strcpy(upload_file,"u-boot.bin");
   /* fmg 1/11/94 colors (set defaults) */
   /* MARK updated 02/17/95 to be more similiar to TELIX */
   mfcolor = YELLOW;
@@ -1152,7 +1183,7 @@ int main(int argc, char **argv)
 
   do {
     /* Process options with getopt */
-    while ((c = getopt_long(argk, args, "v78zhlLsomMHb:wTc:a:t:d:p:C:S:D:R:",
+    while ((c = getopt_long(argk, args, "v78zhlLsomMHb:wTc:a:t:d:p:C:S:D:R:F:",
                             long_options, NULL)) != EOF)
       switch(c) {
 	case 'v':
@@ -1254,8 +1285,24 @@ int main(int argc, char **argv)
           docap = 1;
           vt_set(addlf, -1, docap, -1, -1, -1, -1, -1, addcr);
           break;
+        case 'F': /* Start Directory */
+          strncpy(P_DOWNDIR, optarg, 256);
+          break;
         case 'S': /* start Script */
           strncpy(scr_name, optarg, 33);
+          break;
+        case 'X': /* Download Mode */
+          if (strcmp(optarg,"zmodem")) {
+              upload_mode = ZModem;
+          } else if (strcmp(optarg,"ymodem")) {
+              upload_mode = YModem;
+          } else if (strcmp(optarg,"xmodem")) {
+              upload_mode = XModem;
+          } else if (strcmp(optarg,"kermit")) {
+              upload_mode = Kermit;
+          } else if (strcmp(optarg,"ascii")) {
+              upload_mode = ASCII;
+          }
           break;
         case '7': /* 7bit fallback mode */
 	  screen_ibmpc = screen_iso = 0;
@@ -1644,7 +1691,8 @@ dirty_goto:
         (void) config(0);
         break;
       case 's': /* Upload */
-        updown('U', 0);
+        updown('U', (int) upload_mode);
+//        updown('U', (int) 0);
         break;
       case 'r': /* Download */
         updown('D', 0);

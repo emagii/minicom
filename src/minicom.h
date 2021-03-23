@@ -58,6 +58,15 @@
 # define EXTERN extern
 #endif
 
+
+typedef enum {	/* Match .minirc.dfl */
+  ZModem=0,
+  YModem=1,
+  XModem=2,
+  Kermit=6,
+  ASCII=8,
+} upload_t;
+
 #ifdef _UWIN2P0
 EXTERN int LINES;
 EXTERN int COLS;
@@ -103,6 +112,9 @@ EXTERN char pparfile[256]; /* Personal parameter file */
 EXTERN char scr_name[33];   /* Name of last script */
 EXTERN char scr_user[33];   /* Login name to use with script */
 EXTERN char scr_passwd[33]; /* Password to use with script */
+
+EXTERN char upload_file[128];   /* Name of last script */
+EXTERN upload_t upload_mode;
 
 EXTERN char termtype[32];  /* Value of getenv("TERM"); */
 EXTERN char *dial_tty;     /* tty to use. */
