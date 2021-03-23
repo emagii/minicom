@@ -1,0 +1,16 @@
+Makefile
+autom4te.cache
+config.h
+config.log
+config.status
+.deps
+*.a
+po/Makefile.in
+po/POTFILES
+*.o
+src/ascii-xfr
+stamp-h1
+
+
+src/minicom
+src/runscript
