@@ -1099,6 +1099,7 @@ int main(int argc, char **argv)
   size_changed = 0;
   escape = 1;
   cmd_dial = NULL;
+  upload_mode = ZModem;
   {
     char *s = getenv("MINICOM_UPDIR");
     printf("MINICOM_UPDIR=%s\n", s);
@@ -1114,18 +1115,20 @@ int main(int argc, char **argv)
     printf("P_DOWNDIR=%s\n", P_DOWNDIR);
     s = getenv("MINICOM_MODE");
     printf("MINICOM_MODE=%s\n", s);
-    if (strcmp(s,"zmodem")) {
-      upload_mode = ZModem;
-    } else if (strcmp(s,"ymodem")) {
-      upload_mode = YModem;
-    } else if (strcmp(s,"xmodem")) {
-      upload_mode = XModem;
-    } else if (strcmp(s,"kermit")) {
-      upload_mode = Kermit;
-    } else if (strcmp(s,"ascii")) {
-      upload_mode = ASCII;
-    } else {
-      upload_mode = ZModem;
+    if (s != NULL) {
+      if (strcmp(s,"zmodem")) {
+        upload_mode = ZModem;
+      } else if (strcmp(s,"ymodem")) {
+        upload_mode = YModem;
+      } else if (strcmp(s,"xmodem")) {
+        upload_mode = XModem;
+      } else if (strcmp(s,"kermit")) {	
+        upload_mode = Kermit;
+      } else if (strcmp(s,"ascii")) {
+        upload_mode = ASCII;
+      } else {
+        upload_mode = ZModem;
+      }
     }
   }
   strcpy(upload_file,"u-boot.bin");
